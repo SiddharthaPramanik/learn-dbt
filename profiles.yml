@@ -1,0 +1,14 @@
+dbt_learn_project:
+  target: DEV
+  outputs:
+    DEV:
+      type: snowflake
+      account: "{{ env_var('snowflake_url') }}"
+      
+      user: "{{ env_var('dbt_user') }}"
+      password: "{{ env_var('dbt_password') }}"
+      role: transform
+
+      database: AIRBNB
+      schema: DEV
+      threads: 1
